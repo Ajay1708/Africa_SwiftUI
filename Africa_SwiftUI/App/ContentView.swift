@@ -19,7 +19,11 @@ struct ContentView: View {
                     .frame(height: 300)
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 ForEach(animals){ item in
-                    AnimalListItemView(animal: item)
+                    NavigationLink {
+                        AnimalDetailView(animal: item)
+                    } label: {
+                        AnimalListItemView(animal: item)
+                    }
                 }
             }
             .listStyle(.plain)
